@@ -1,75 +1,185 @@
 import Navbar from '@/components/Navbar';
-import { FaUsers, FaFileUpload, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
+import { FaUsers, FaArrowRight, FaNewspaper, FaUniversity, FaBullseye, FaBullhorn, FaFolderOpen } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 font-sans">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-[#0274be] via-[#0274be] to-[#015a94] text-white overflow-hidden">
-        {/* Decoración de fondo (opcional) */}
+      <section className="relative pt-40 pb-24 px-4 bg-gradient-to-br from-[#0274be] via-[#0274be] to-[#014875] text-white overflow-hidden">
         <div className="absolute top-0 right-0 -mt-20 -mr-20 opacity-10">
-          <FaUsers size={400} />
+          <FaUniversity size={450} />
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Gestión Estudiantil Eficiente <br /> para la <span className="underline decoration-yellow-400">FCU</span>
+            Federación de Centros de Estudiantes <br />
+            <span className="text-[#EEBF31] drop-shadow-lg">Atención y Gestión Estudiantil</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto">
-            Bienvenido al sistema oficial de registro 1x10 y gestión de reportes de la Federación de Centros de Estudiantes.
+          <p className="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto font-light">
+            Plataforma oficial para la gestión de solicitudes, orientación académica y canalización de requerimientos de nuestra universidad.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link href="/login" className="bg-white text-[#0274be] px-10 py-4 rounded-xl font-bold text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
-              Comenzar ahora <FaArrowRight />
+            <Link href="/login" className="bg-[#EEBF31] text-[#0274be] px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-yellow-400 hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+              Ingresar al Sistema <FaArrowRight />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Features / Información */}
+      {/* Sección Nosotros: Misión y Visión */}
+      <section id="nosotros" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Nuestra Identidad</h2>
+            <div className="w-24 h-1 bg-[#CB2229] mx-auto mt-4 rounded-full"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+            {/* Misión */}
+            <div className="bg-gray-50 p-10 rounded-2xl border-t-4 border-[#0274be] shadow-lg hover:shadow-xl transition relative overflow-hidden group">
+              <div className="absolute top-4 right-4 text-[#0274be] opacity-10 group-hover:opacity-20 transition">
+                <FaBullseye size={80} />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#0274be] flex items-center gap-3">
+                Misión
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Defender, promover y garantizar los derechos de todos los estudiantes universitarios. Fomentar el desarrollo integral, la excelencia académica y la participación activa del estudiantado en la toma de decisiones que beneficien a nuestra comunidad unergista, siendo siempre la voz representativa ante las autoridades institucionales.
+              </p>
+            </div>
+
+            {/* Visión */}
+            <div className="bg-gray-50 p-10 rounded-2xl border-t-4 border-[#CB2229] shadow-lg hover:shadow-xl transition relative overflow-hidden group">
+              <div className="absolute top-4 right-4 text-[#CB2229] opacity-10 group-hover:opacity-20 transition">
+                <FaUniversity size={80} />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-[#CB2229] flex items-center gap-3">
+                Visión
+              </h3>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Consolidarnos como una Federación de Centros de Estudiantes vanguardista, reconocida por su liderazgo, transparencia y capacidad de gestión. Aspiramos a ser un modelo de organización estudiantil a nivel nacional que garantice una universidad moderna, inclusiva y comprometida con el desarrollo social del país.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Servicios del Sistema (Remplazo de los módulos) */}
       <section className="py-20 max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-800">¿Qué puedes hacer en el sistema?</h2>
-          <div className="w-24 h-1 bg-[#0274be] mx-auto mt-4"></div>
+          <h2 className="text-3xl font-bold text-gray-800">Servicios de Atención</h2>
+          <div className="w-24 h-1 bg-[#0274be] mx-auto mt-4 rounded-full"></div>
+          <p className="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">
+            La FCU pone a tu disposición este portal web para facilitar tu vida universitaria, acercando las soluciones directamente a ti.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
-          <FeatureCard
+          <ServiceCard
+            icon={<FaBullhorn className="text-5xl text-[#CB2229]" />}
+            title="Canal de Denuncias"
+            desc="Un espacio directo y confidencial para reportar incidencias académicas, de infraestructura o cualquier irregularidad."
+          />
+          <ServiceCard
+            icon={<FaFolderOpen className="text-5xl text-[#EEBF31]" />}
+            title="Gestión de Trámites"
+            desc="Centraliza tus requerimientos. Agiliza procesos y recibe apoyo de la Federación para solventar problemas administrativos."
+          />
+          <ServiceCard
             icon={<FaUsers className="text-5xl text-[#0274be]" />}
-            title="Registro 1x10"
-            desc="Registra de manera ágil a los integrantes de tu equipo usando solo su número de cédula."
-          />
-          <FeatureCard
-            icon={<FaFileUpload className="text-5xl text-[#0274be]" />}
-            title="Carga de Reportes"
-            desc="Sube tus archivos PDF (máximo 10MB) de forma segura y directa al servidor central."
-          />
-          <FeatureCard
-            icon={<FaShieldAlt className="text-5xl text-[#0274be]" />}
-            title="Control de Admin"
-            desc="Los administradores pueden monitorear registros y descargar documentos en tiempo real."
+            title="Acompañamiento"
+            desc="Recibe orientación constante para el cumplimiento de tus derechos y la correcta integración a la vida universitaria."
           />
         </div>
       </section>
 
-      {/* Footer Simple */}
-      <footer className="bg-gray-800 text-gray-400 py-10 text-center">
-        <p>© {new Date().getFullYear()} FCU - Federación de Centros de Estudiantes. Todos los derechos reservados.</p>
+      {/* Sección de Noticias */}
+      <section id="noticias" className="py-20 bg-gray-100 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Últimas Noticias</h2>
+              <div className="w-24 h-1 bg-[#EEBF31] mt-4 rounded-full"></div>
+            </div>
+            <Link href="#" className="hidden md:flex text-[#0274be] font-bold hover:text-[#CB2229] items-center gap-2 transition">
+              Ver todas <FaArrowRight />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <NewsCard
+              category="Académico"
+              title="Inicio del Nuevo Periodo Académico"
+              desc="Las autoridades confirmaron las fechas de inicio de clases para todas las áreas. Conoce el calendario completo aquí."
+              color="#0274be"
+            />
+            <NewsCard
+              category="Gestión FCU"
+              title="Nuevas Unidades de Transporte"
+              desc="La FCU logra acuerdo para incorporar nuevas unidades de transporte en beneficio de toda la comunidad estudiantil."
+              color="#CB2229"
+            />
+            <NewsCard
+              category="Deportes"
+              title="Juegos Inter-Áreas Universitarios"
+              desc="Prepárate para apoyar a tu facultad en la próxima edición de los juegos deportivos universitarios."
+              color="#EEBF31"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#0f172a] text-gray-300 py-12">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+          <div>
+            <h4 className="text-2xl font-bold text-white mb-2">FCU UNERG</h4>
+            <p className="text-sm">Federación de Centros de Estudiantes.</p>
+          </div>
+          <div className="flex justify-center space-x-6 text-2xl">
+            {/* Agrega aquí los iconos de redes sociales de la FCU si los tienes */}
+          </div>
+          <div className="md:text-right">
+            <p className="text-sm">© {new Date().getFullYear()} Todos los derechos reservados.</p>
+            <p className="text-xs mt-2 text-[#EEBF31]">Plataforma de Atención Estudiantil</p>
+          </div>
+        </div>
       </footer>
     </main>
   );
 }
 
-// Sub-componente para las tarjetas de características
-function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
+// Sub-componente para las tarjetas de servicios (Remplazó a Módulos)
+function ServiceCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
   return (
-    <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-shadow text-center group">
+    <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl transition-all duration-300 text-center group hover:-translate-y-2">
       <div className="flex justify-center mb-6 transform group-hover:scale-110 transition-transform">{icon}</div>
       <h3 className="text-2xl font-bold mb-4 text-gray-800">{title}</h3>
       <p className="text-gray-600 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+// Sub-componente para las tarjetas de noticias
+function NewsCard({ category, title, desc, color }: { category: string, title: string, desc: string, color: string }) {
+  return (
+    <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col h-full">
+      <div className="h-48 flex items-center justify-center text-white relative" style={{ backgroundColor: color }}>
+        <FaNewspaper className="text-6xl opacity-80" />
+        <span className="absolute bottom-3 left-4 bg-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
+          {category}
+        </span>
+      </div>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
+        <p className="text-gray-600 mb-6 flex-grow">{desc}</p>
+        <button className="font-bold hover:underline flex items-center gap-2 mt-auto" style={{ color: color }}>
+          Leer más <FaArrowRight size={14} />
+        </button>
+      </div>
     </div>
   );
 }
