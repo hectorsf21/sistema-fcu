@@ -27,7 +27,7 @@ export default function Navbar() {
                             />
                         </div>
                         <Link href="/" className="font-bold text-xl tracking-wider hidden sm:block">
-                            FCU <span className="font-light text-sm hidden lg:inline">| FEDERACIÓN DE CENTROS</span>
+                            FCU <span className="font-light text-sm hidden lg:inline">| FEDERACIÓN DE CENTROS UNIVERSITARIOS</span>
                         </Link>
                     </div>
 

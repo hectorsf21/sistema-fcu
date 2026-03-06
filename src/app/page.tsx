@@ -15,7 +15,7 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Federación de Centros de Estudiantes <br />
+            Federación de Centros Universitarios <br />
             <span className="text-[#EEBF31] drop-shadow-lg">Atención y Gestión Estudiantil</span>
           </h1>
           <p className="text-xl md:text-2xl mb-10 text-blue-100 max-w-3xl mx-auto font-light">
@@ -47,7 +47,7 @@ export default function Home() {
                 Misión
               </h3>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Defender, promover y garantizar los derechos de todos los estudiantes universitarios. Fomentar el desarrollo integral, la excelencia académica y la participación activa del estudiantado en la toma de decisiones que beneficien a nuestra comunidad unergista, siendo siempre la voz representativa ante las autoridades institucionales.
+                Nuestra misión es representar y defender con integridad los derechos de la comunidad estudiantil de la Universidad Nacional Experimental de los Llanos Centrales "Rómulo Gallegos ", garantizando la vigencia de una educación pública, gratuita y de excelencia. Nos constituimos como el pilar que asegura el acceso democrático al conocimiento, promoviendo condiciones dignas de bienestar y un entorno académico de alto nivel. Trabajamos para formar profesionales integrales y comprometidos con el desarrollo del país, reafirmando que la calidad académica es el derecho irrenunciable de cada estudiante Venezolano.
               </p>
             </div>
 
@@ -60,9 +60,22 @@ export default function Home() {
                 Visión
               </h3>
               <p className="text-gray-600 leading-relaxed text-lg">
-                Consolidarnos como una Federación de Centros de Estudiantes vanguardista, reconocida por su liderazgo, transparencia y capacidad de gestión. Aspiramos a ser un modelo de organización estudiantil a nivel nacional que garantice una universidad moderna, inclusiva y comprometida con el desarrollo social del país.
+                Consolidarnos como el movimiento estudiantil referente a nivel nacional por su vanguardia académica y compromiso social, siendo el pilar fundamental que garantice una universidad pública, gratuita y de calidad. Nos proyectamos como un agente catalizador en la transformación de la sociedad, convirtiendo la UNERG en un espacio de innovación y bienestar donde cada estudiante alcance su pleno potencial profesional. Aspiramos a formar ciudadanos éticos y líderes intelectuales capaces de trascender las aulas para generar soluciones reales a los desafíos del país, liderando la formación y la inteligencia que transformará a Venezuela. ¡Por una universidad gratuita, científica y al servicio del pueblo!
               </p>
             </div>
+          </div>
+
+          {/* Objetivos */}
+          <div className="mt-10 bg-gray-50 p-10 rounded-2xl border-t-4 border-[#EEBF31] shadow-lg hover:shadow-xl transition relative overflow-hidden group">
+            <div className="absolute top-4 right-4 text-[#EEBF31] opacity-10 group-hover:opacity-20 transition">
+              <FaUsers size={80} />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-[#EEBF31] flex items-center gap-3">
+              Objetivos
+            </h3>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              Consolidar una Federación de Centros Universitarios (FCU) que sea el reflejo fiel del sentir colectivo y la identidad unergista, fundamentada en la unidad política para potenciar el desarrollo integral del estudiante. Nuestra gestión se dedicará a la conquista y consolidación de reivindicaciones históricas, transformando el compromiso académico en bienestar social, y asegurando que cada pasillo de la UNERG sea un espacio de oportunidades, justicia y orgullo para quienes forjan el futuro de Venezuela desde el corazón de los Llanos.
+            </p>
           </div>
         </div>
       </section>

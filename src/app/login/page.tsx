@@ -59,7 +59,7 @@ export default function Login() {
                         </div>
 
                         <Link
-                            href="/patrullero"
+                            href="/admin"
                             className="w-full block text-center bg-[#0274be] text-white font-extrabold py-4 rounded-xl hover:bg-[#015a94] shadow-lg hover:shadow-[#0274be]/30 transition-all active:scale-95"
                         >
                             INGRESAR AL SISTEMA
