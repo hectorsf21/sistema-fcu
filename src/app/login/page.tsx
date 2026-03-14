@@ -1,11 +1,24 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FaUser, FaLock, FaChevronLeft } from 'react-icons/fa';
 
 export default function Login() {
     const [cedula, setCedula] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    const router = useRouter();
+
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (cedula === '000' && password === '1610') {
+            setError('');
+            router.push('/admin');
+        } else {
+            setError('Credenciales incorrectas');
+        }
+    };
 
     return (
         <div className="min-h-screen bg-[#e6f1f8] flex items-center justify-center px-4 py-10">
@@ -23,7 +36,7 @@ export default function Login() {
                     </div>
 
                     {/* Formulario */}
-                    <form className="p-10 space-y-6">
+                    <form className="p-10 space-y-6" onSubmit={handleLogin}>
                         <div>
                             <label className="block text-sm font-bold text-gray-700 mb-2 uppercase tracking-wide">Cédula de Identidad</label>
                             <div className="relative">
@@ -58,12 +71,14 @@ export default function Login() {
                             </div>
                         </div>
 
-                        <Link
-                            href="/admin"
+                        {error && <p className="text-red-500 text-sm text-center font-bold">{error}</p>}
+
+                        <button
+                            type="submit"
                             className="w-full block text-center bg-[#0274be] text-white font-extrabold py-4 rounded-xl hover:bg-[#015a94] shadow-lg hover:shadow-[#0274be]/30 transition-all active:scale-95"
                         >
                             INGRESAR AL SISTEMA
-                        </Link>
+                        </button>
 
                         <div className="text-center pt-4">
                             <p className="text-sm text-gray-500">
