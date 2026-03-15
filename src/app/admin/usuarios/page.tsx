@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
-import { FaUserPlus, FaEnvelope, FaLock, FaChevronLeft, FaSave, FaUser } from 'react-icons/fa';
+import { FaUserPlus, FaEnvelope, FaLock, FaChevronLeft, FaSave, FaUser, FaList, FaToggleOn, FaToggleOff, FaKey } from 'react-icons/fa';
 
 export default function UsuariosAdmin() {
     const [nombre, setNombre] = useState('');
@@ -17,6 +17,13 @@ export default function UsuariosAdmin() {
         estadisticas: false,
     });
     const [mensaje, setMensaje] = useState({ error: false, texto: '' });
+
+    // Mock data para la tabla de usuarios
+    const [usuariosLista, setUsuariosLista] = useState([
+        { id: 1, nombre: 'Super', apellido: 'Admin', correo: 'admin@fcu.edu.ve', estatus: 'Activo' },
+        { id: 2, nombre: 'Juan', apellido: 'Pérez', correo: 'juan.perez@fcu.edu.ve', estatus: 'Activo' },
+        { id: 3, nombre: 'María', apellido: 'Gómez', correo: 'maria.gomez@fcu.edu.ve', estatus: 'Inactivo' },
+    ]);
 
     const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPermisos({
@@ -57,6 +64,20 @@ export default function UsuariosAdmin() {
         });
 
         setTimeout(() => setMensaje({ error: false, texto: '' }), 5000);
+    };
+
+    const handleToggleEstatus = (id: number) => {
+        setUsuariosLista(prev => prev.map(u => {
+            if (u.id === id && u.id !== 1) { // Prevenir desactivar al superadmin principal
+                return { ...u, estatus: u.estatus === 'Activo' ? 'Inactivo' : 'Activo' };
+            }
+            return u;
+        }));
+    };
+
+    const handleCambiarPassword = (id: number) => {
+        // En una app real esto abriría un modal para ingresar la nueva contraseña
+        alert(`Abrir modal para cambiar contraseña del usuario ID: ${id}`);
     };
 
     return (
@@ -260,6 +281,68 @@ export default function UsuariosAdmin() {
                             </button>
                         </div>
                     </form>
+                </div>
+
+                {/* Tabla de Usuarios */}
+                <div className="mt-12 bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                    <div className="bg-gray-800 p-6 text-white border-b-4 border-[#EEBF31] flex justify-between items-center">
+                        <div>
+                            <h2 className="text-xl font-bold flex items-center gap-2"><FaList /> Lista de Usuarios</h2>
+                            <p className="text-gray-300 mt-1 text-sm">Gestione las credenciales y el estado de los administradores</p>
+                        </div>
+                    </div>
+
+                    <div className="overflow-x-auto p-4">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="bg-gray-50 text-gray-700 border-b-2 border-gray-200">
+                                    <th className="p-4 font-bold text-sm uppercase tracking-wider">Nombre y Apellido</th>
+                                    <th className="p-4 font-bold text-sm uppercase tracking-wider">Correo</th>
+                                    <th className="p-4 font-bold text-sm uppercase tracking-wider text-center">Estatus</th>
+                                    <th className="p-4 font-bold text-sm uppercase tracking-wider text-center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100">
+                                {usuariosLista.map((user) => (
+                                    <tr key={user.id} className="hover:bg-gray-50 transition-colors">
+                                        <td className="p-4">
+                                            <div className="font-semibold text-gray-800">{user.nombre} {user.apellido}</div>
+                                        </td>
+                                        <td className="p-4 text-gray-600">
+                                            {user.correo}
+                                        </td>
+                                        <td className="p-4 text-center">
+                                            <span className={`inline-flex px-3 py-1 rounded-full text-xs font-bold ${user.estatus === 'Activo' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                                                {user.estatus}
+                                            </span>
+                                        </td>
+                                        <td className="p-4 flex justify-center gap-3">
+                                            <button
+                                                onClick={() => handleCambiarPassword(user.id)}
+                                                className="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                                                title="Cambiar Contraseña"
+                                            >
+                                                <FaKey />
+                                            </button>
+                                            <button
+                                                onClick={() => handleToggleEstatus(user.id)}
+                                                className={`p-2 rounded-lg transition-colors ${user.id === 1 ? 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                                                title={user.estatus === 'Activo' ? 'Inactivar Usuario' : 'Activar Usuario'}
+                                                disabled={user.id === 1} // No desactivar al superadmin principal
+                                            >
+                                                {user.estatus === 'Activo' ? <FaToggleOn className="text-xl text-green-600" /> : <FaToggleOff className="text-xl text-red-500" />}
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                                {usuariosLista.length === 0 && (
+                                    <tr>
+                                        <td colSpan={4} className="p-8 text-center text-gray-500">No hay usuarios registrados.</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
