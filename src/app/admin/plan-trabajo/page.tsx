@@ -3,17 +3,12 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaArrowLeft, FaSearch, FaDownload, FaPlus, FaTimes, FaCalendarCheck, FaUpload } from 'react-icons/fa';
 
-// Datos de prueba para Plan de Trabajo
-const NOMBRES = ['Marcos Pérez', 'Fabián González', 'Luis Fernández', 'María Sánchez', 'Andrea Gómez', 'Carlos Rodríguez', 'Sofía Castillo', 'Javier López', 'Ana Martínez', 'Diego Herrera'];
-const ESTADOS = ['Pendiente', 'En Revisión', 'Aprobado'];
-
-const MOCK_PLANES = Array.from({ length: 20 }, (_, i) => ({
-    id: i + 1,
-    autor: NOMBRES[i % NOMBRES.length],
-    carrera: ['Ingeniería Informática', 'Medicina', 'Odontología', 'Agronomía', 'Derecho'][i % 5],
-    estado: ESTADOS[i % 3],
-    fecha: `2024-0${1 + (i % 8)}-${10 + (i % 20)}`,
-}));
+// Datos de prueba para Plan de Trabajo - Simulando solo los del usuario actual
+const MOCK_PLANES = [
+    { id: 1, autor: 'Mi Usuario', carrera: 'Ingeniería Informática', estado: 'Aprobado', fecha: '2024-03-15' },
+    { id: 2, autor: 'Mi Usuario', carrera: 'Ingeniería Informática', estado: 'En Revisión', fecha: '2024-03-10' },
+    { id: 3, autor: 'Mi Usuario', carrera: 'Ingeniería Informática', estado: 'Pendiente', fecha: '2024-03-05' },
+];
 
 export default function PlanTrabajoPage() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -40,7 +35,7 @@ export default function PlanTrabajoPage() {
             <header className="bg-[#021f31] text-white p-4 shadow-md flex justify-between items-center px-6 sticky top-0 z-50">
                 <div className="flex items-center gap-3">
                     <div className="bg-[#EEBF31] text-gray-900 p-2 rounded-lg font-bold shadow-lg text-sm drop-shadow">PLAN</div>
-                    <h1 className="text-xl md:text-2xl font-bold tracking-tight">Plan de Trabajo</h1>
+                    <h1 className="text-xl md:text-2xl font-bold tracking-tight">Mi Plan de Trabajo</h1>
                 </div>
                 <Link href="/admin" className="flex items-center gap-2 text-slate-300 hover:text-[#EEBF31] transition-colors text-sm font-medium">
                     <FaArrowLeft /> <span className="hidden sm:inline">Volver al Panel</span>

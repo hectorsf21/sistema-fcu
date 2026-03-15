@@ -50,18 +50,34 @@ export default function AdminDashboard() {
 
                     <DashboardCard
                         href="/admin/proyectos"
-                        title="Subir Proyectos"
-                        desc="Registra, edita y actualiza los proyectos académicos y sociales impulsados por la FCU."
+                        title="Mis Proyectos"
+                        desc="Registra y visualiza tus proyectos académicos y sociales impulsados por la FCU."
                         icon={<FaProjectDiagram className="text-5xl text-[#CB2229]" />}
                         color="border-[#CB2229]"
                     />
 
                     <DashboardCard
+                        href="/admin/proyectos/gestion"
+                        title="Gestión de Proyectos"
+                        desc="Panel administrativo para visualizar y cambiar el estatus de todos los proyectos."
+                        icon={<FaProjectDiagram className="text-5xl text-[#0274be]" />}
+                        color="border-[#0274be]"
+                    />
+
+                    <DashboardCard
                         href="/admin/plan-trabajo"
-                        title="Plan de Trabajo"
-                        desc="Administra la planificación a corto y largo plazo, además del cronograma general de actividades."
+                        title="Mi Plan de Trabajo"
+                        desc="Administra y visualiza tu planificación a corto y largo plazo personal."
                         icon={<FaCalendarAlt className="text-5xl text-[#EEBF31]" />}
                         color="border-[#EEBF31]"
+                    />
+
+                    <DashboardCard
+                        href="/admin/plan-trabajo/gestion"
+                        title="Gestión de Planes"
+                        desc="Panel administrativo para revisar y evaluar todos los planes de trabajo subidos."
+                        icon={<FaCalendarAlt className="text-5xl text-[#CB2229]" />}
+                        color="border-[#CB2229]"
                     />
 
                     <DashboardCard

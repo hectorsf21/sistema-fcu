@@ -10,7 +10,9 @@ export default function UsuariosAdmin() {
     const [password, setPassword] = useState('');
     const [permisos, setPermisos] = useState({
         proyectos: false,
+        gestionProyectos: false,
         planTrabajo: false,
+        gestionPlanes: false,
         denuncias: false,
         noticias: false,
         cargos: false,
@@ -56,7 +58,9 @@ export default function UsuariosAdmin() {
         setPassword('');
         setPermisos({
             proyectos: false,
+            gestionProyectos: false,
             planTrabajo: false,
+            gestionPlanes: false,
             denuncias: false,
             noticias: false,
             cargos: false,
@@ -197,7 +201,18 @@ export default function UsuariosAdmin() {
                                             onChange={handleCheckboxChange}
                                             className="w-5 h-5 rounded border-gray-300 text-[#0274be] focus:ring-[#0274be] transition-colors cursor-pointer"
                                         />
-                                        <span className="text-gray-700 font-medium group-hover:text-[#0274be] transition-colors">Proyectos</span>
+                                        <span className="text-gray-700 font-medium group-hover:text-[#0274be] transition-colors">Mis Proyectos (Cargar)</span>
+                                    </label>
+
+                                    <label className="flex items-center gap-3 cursor-pointer group">
+                                        <input
+                                            type="checkbox"
+                                            name="gestionProyectos"
+                                            checked={permisos.gestionProyectos}
+                                            onChange={handleCheckboxChange}
+                                            className="w-5 h-5 rounded border-gray-300 text-[#0274be] focus:ring-[#0274be] transition-colors cursor-pointer"
+                                        />
+                                        <span className="text-gray-700 font-medium group-hover:text-[#0274be] transition-colors">Gestión General de Proyectos</span>
                                     </label>
 
                                     <label className="flex items-center gap-3 cursor-pointer group">
@@ -208,7 +223,18 @@ export default function UsuariosAdmin() {
                                             onChange={handleCheckboxChange}
                                             className="w-5 h-5 rounded border-gray-300 text-[#0274be] focus:ring-[#0274be] transition-colors cursor-pointer"
                                         />
-                                        <span className="text-gray-700 font-medium group-hover:text-[#0274be] transition-colors">Plan de Trabajo</span>
+                                        <span className="text-gray-700 font-medium group-hover:text-[#0274be] transition-colors">Mi Plan de Trabajo (Cargar)</span>
+                                    </label>
+
+                                    <label className="flex items-center gap-3 cursor-pointer group">
+                                        <input
+                                            type="checkbox"
+                                            name="gestionPlanes"
+                                            checked={permisos.gestionPlanes}
+                                            onChange={handleCheckboxChange}
+                                            className="w-5 h-5 rounded border-gray-300 text-[#0274be] focus:ring-[#0274be] transition-colors cursor-pointer"
+                                        />
+                                        <span className="text-gray-700 font-medium group-hover:text-[#0274be] transition-colors">Gestión General de Planes</span>
                                     </label>
 
                                     <label className="flex items-center gap-3 cursor-pointer group">
