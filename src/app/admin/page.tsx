@@ -9,7 +9,8 @@ import {
     FaBook,
     FaChartBar,
     FaArrowLeft,
-    FaBullhorn
+    FaBullhorn,
+    FaUserPlus
 } from 'react-icons/fa';
 
 export default function AdminDashboard() {
@@ -93,6 +94,14 @@ export default function AdminDashboard() {
                         desc="Revisa y gestiona los reportes, incidencias o quejas enviadas por la comunidad estudiantil."
                         icon={<FaBullhorn className="text-5xl text-[#0274be]" />}
                         color="border-[#0274be]"
+                    />
+
+                    <DashboardCard
+                        href="/admin/usuarios"
+                        title="Crear Usuarios"
+                        desc="Registra nuevos usuarios administradores y gestiona sus permisos y acceso a módulos."
+                        icon={<FaUserPlus className="text-5xl text-[#CB2229]" />}
+                        color="border-[#CB2229]"
                     />
 
                 </div>
